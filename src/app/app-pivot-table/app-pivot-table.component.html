@@ -1,0 +1,26 @@
+<h2 class="text-xl font-bold mb-4">🧠 Angular Pivot Table</h2>
+
+<div class="flex gap-4 my-4">
+  <div>
+    <h3 class="font-medium mb-1">Group By</h3>
+    <app-drop-zone [zone]="groupBy" (dropField)="handleDrop($event, 'group')"
+      (removeField)="removeField($event, 'group')"></app-drop-zone>
+  </div>
+
+  <div>
+    <h3 class="font-medium mb-1">Pivot By</h3>
+    <app-drop-zone [zone]="pivotBy" (dropField)="handleDrop($event, 'pivot')"
+      (removeField)="removeField($event, 'pivot')"></app-drop-zone>
+  </div>
+
+  <div>
+    <h3 class="font-medium mb-1">Aggregation</h3>
+    <select [(ngModel)]="aggregation" (change)="update()" class="border p-1">
+      <option value="sum">Sum</option>
+      <option value="avg">Average</option>
+      <option value="count">Count</option>
+    </select>
+  </div>
+</div>
+
+<app-data-table [data]="result"></app-data-table>

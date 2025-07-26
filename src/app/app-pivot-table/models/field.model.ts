@@ -1,0 +1,1 @@
+export type AggregationType = 'sum' | 'avg' | 'count';
